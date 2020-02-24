@@ -2,7 +2,7 @@ export const MENU = [
     {
        id: 0,
         name:'Coffee',
-        image: './images/Coffee.jpg',
+        image: "images/Coffee.jpg",
         altimage: "Photo by Nathan Dumlao on Unsplash",
         description: "Choice of special blends of coffee",
         items: [
@@ -47,7 +47,7 @@ export const MENU = [
     {
         id: 1,
         name: 'Drinks',
-        image: './images/tea.jpg',
+        image: './images/Tea.jpg',
         altimage: "Photo by Food Photographer | Jennifer Pallian on Unsplash",
         description: "Please enjoy our speciality drinks",
         items: [
