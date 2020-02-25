@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, Button, Icon, Image } from 'react-native';
 import { ListItem, Card, Text, Tile } from 'react-native-elements';
-import { MENU } from '../shared/MenuItems';
+import { MENU } from '../shared/Menu';
 
 class Menu extends Component {
 
@@ -19,18 +19,23 @@ class Menu extends Component {
 
     render() {
         const { navigate } = this.props.navigation;
+        
         const renderMenu = ({item}) => {
             return (
+                
                 <Card
                     title={item.name}
-                    image={{uri: item.image}}>
-                    <Text >
+                    image={item.image}
+                    imageStyle={{height: 300}} >
+                    <Text>
                         {item.description}    
                     </Text>
+                    
                     <Button
-                        
-                        buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                        title={`View All ${item.name}`} /> 
+                        buttonStyle={{borderRadius: 1, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                        onPress={() => navigate('MenuItems', {menuId: item.id})}
+                        title={`View All ${item.name}`} 
+                        color="#282c34"/> 
                 </Card>
             );
         };

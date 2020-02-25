@@ -12,7 +12,8 @@ class Home extends Component {
         return (
             <ScrollView>
                 <Image 
-                    source={require('./images/img15.jpg')} />
+                    source={require('./images/Cafe.jpg')}
+                    style={{height: 300}} />
                 <Text>Home Component</Text>
             </ScrollView>
         );

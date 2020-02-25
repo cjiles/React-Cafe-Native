@@ -7,6 +7,7 @@ import Reservation from './ReservationComponent';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { View } from 'react-native';
 
+
 const HomeNavigator = createStackNavigator(
     {
         Home: { screen: Home }
@@ -27,7 +28,8 @@ const HomeNavigator = createStackNavigator(
 
 const MenuNavigator = createStackNavigator(
     {
-        Menu: {screen: Menu}
+        Menu: {screen: Menu},
+        MenuItems: {screen: MenuItems}
     },
     {
         navigationOptions: ({navigation}) => ({
@@ -62,7 +64,7 @@ class Main extends Component{
                 <MainNavigator />
             </View>
         );
-    }
+      }
 }
 
 export default Main;
