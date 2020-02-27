@@ -5,7 +5,7 @@ import {  Text, Image , ScrollView} from 'react-native';
 class Home extends Component {
 
     static navigationOptions = {
-        title: 'Home'
+        title: "It's A Great Day For Cofee"
     }
 
     render() {

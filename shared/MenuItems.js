@@ -181,7 +181,5 @@ export const MENUITEMS =
         title: "Arugula",
         price:"7.50",
         description: "Bleu cheese, apples, grapes and toasted walnuts on a bed of arugula with our tangy balsamic vinaigrette"
-    }
-
-    
+    }    
 ]

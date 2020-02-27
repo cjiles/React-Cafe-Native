@@ -3,8 +3,8 @@ import Home from './HomeComponent';
 import Menu from './MenuComponent';
 import MenuItems from './MenuItemsComponent';
 import Locations from './LocationsComponent';
-import Reservation from './ReservationComponent';
-import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
+import Reservation from './OrderComponent';
+import { createStackNavigator, createDrawerNavigator, DrawerItems, createTabNavigator, createMaterialTopTabNavigator} from 'react-navigation';
 import { View } from 'react-native';
 
 
@@ -15,11 +15,12 @@ const HomeNavigator = createStackNavigator(
     {
         navigationOptions: {
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#294452'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
-                color: '#fff'
+                color: '#F3F2F4',
+                marginBottom: 20
             }
         }
     }
@@ -32,28 +33,65 @@ const MenuNavigator = createStackNavigator(
         MenuItems: {screen: MenuItems}
     },
     {
+        initialRouteName: 'Menu',
         navigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#294452'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
-                color: '#fff'
+                color: '#F3F2F4',
+                marginBottom: 20
             }
         })
     }
 );
 
-const MainNavigator = createDrawerNavigator(
+const LocationNavigator = createStackNavigator(
     {
-        Home: { screen: HomeNavigator },
-        Menu: { screen: MenuNavigator}
+        Locations: { screen: Locations }
     },
     {
-        drawerBackgroundColor: '#CEC8FF'
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#294452'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#F3F2F4',
+                marginBottom: 20
+            }
+        }
     }
 );
+// const MainNavigator = createDrawerNavigator(
+//     {
+//         Home: { screen: HomeNavigator },
+//         Menu: { screen: MenuNavigator},
+//         Locations: { screen: LocationNavigator}
+//     },
+//     {
+//         drawerBackgroundColor: '#CEC8FF'
+//     }
+// );
 
+const MainNavigator = createMaterialTopTabNavigator(
+    {
+        Home: HomeNavigator,
+        Menu: MenuNavigator,
+        Locations: LocationNavigator
+    },
+    {
+        tabBarOptions: {
+            activeTintColor: '#F3F2F4',
+            inactiveTintColor: 'black', 
+            labelStyle: {fontSize: 16},
+            showIcon: true,
+            style: {backgroundColor: '#81A2B7'},
+            indicatorStyle: {color: 'black'}
+        }
+    }
+)
 
 
 

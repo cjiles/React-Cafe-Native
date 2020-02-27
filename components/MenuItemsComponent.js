@@ -1,47 +1,43 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, Flatlist } from 'react-native';
+import { Text, View, ScrollView, FlatList } from 'react-native';
 import { Card } from 'react-native-elements';
 import { MENU } from '../shared/Menu';
 import { MENUITEMS } from '../shared/MenuItems';
 
-function RenderMenu(props) {
-
-    const {menu} = props;
+function RenderMenu({menu}) {
 
     if (menu) {
         return (
             <Card
-                title={menu.name}
-                image={menu.image} >
-                <Text>
-                    {menu.description}
-                </Text>
+                featuredTitle={menu.name}
+                featuredTitleStyle={{fontSize: 40}}
+                image={menu.image} 
+                imageStyle={{height: 300}}
+                >
             </Card>
-        )
+        );
     }
     return <View />
 }
 
-function RenderMenus({menuitem}) {
-    const renderMenuItem = ({menuitems}) => {
+function RenderItems({items}) {
+    const renderMenuItem = ({item}) => {
         return(
-            <View>
-                <Text>
-                    {menuitems.title}......{menuitems.price}
-                </Text>
-                <Text>
-                    {menuitems.description}
-                </Text>
+            <View style={{margin: 10}}>
+                <Text style={{fontSize: 20}}>{item.title} ............. {item.price}</Text>
+                <Text style={{fontSize: 16}}>{item.description}</Text>
             </View>
-        )
+        );
     };
-
-    return(
-        <Flatlist
-            data={menuitem}
-            renderItem={RenderMenus}
-            keyExtractor={item => item.id.toString()}
-        />
+    
+    return (
+        <Card> 
+            <FlatList
+                data={items}
+                renderItem={renderMenuItem}
+                keyExtractor={item => item.id.toString()}
+            />
+        </Card>
     );
 }
 
@@ -51,22 +47,20 @@ class MenuItems extends Component {
         super(props);
         this.state = {
             menu: MENU,
-            item: MENUITEMS
+            items: MENUITEMS
         };
     }
 
-    static navigationOptions = {
-        title: "Menu Items"
-    }
+
 
     render() {
         const menuId = this.props.navigation.getParam('menuId');
         const menu = this.state.menu.filter(menu => menu.id === menuId)[0];
-        // const menuItems = this.state.item.filter(item => item.menuId === menuId);
+        const items = this.state.items.filter(item => item.menuId === menuId);
         return (
-            <ScrollView>
+            <ScrollView style={{marginBottom: 20}}>
                 <RenderMenu menu={menu} />
-                {/* <RenderMenus menuItems={menuItems} /> */}
+                <RenderItems items={items} /> 
             </ScrollView>
         )
     }
