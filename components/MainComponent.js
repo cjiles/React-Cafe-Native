@@ -3,7 +3,7 @@ import Home from './HomeComponent';
 import Menu from './MenuComponent';
 import MenuItems from './MenuItemsComponent';
 import Locations from './LocationsComponent';
-import Reservation from './OrderComponent';
+import Order from './OrderComponent';
 import { createStackNavigator, createDrawerNavigator, DrawerItems, createTabNavigator, createMaterialTopTabNavigator} from 'react-navigation';
 import { View } from 'react-native';
 
@@ -64,6 +64,24 @@ const LocationNavigator = createStackNavigator(
         }
     }
 );
+
+const OrderNavigator = createStackNavigator(
+    {
+        Order: { screen: Order }
+    },
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#294452'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#F3F2F4',
+                marginBottom: 20
+            }
+        }
+    }
+);
 // const MainNavigator = createDrawerNavigator(
 //     {
 //         Home: { screen: HomeNavigator },
@@ -79,7 +97,8 @@ const MainNavigator = createMaterialTopTabNavigator(
     {
         Home: HomeNavigator,
         Menu: MenuNavigator,
-        Locations: LocationNavigator
+        Locations: LocationNavigator,
+        Order: OrderNavigator
     },
     {
         tabBarOptions: {

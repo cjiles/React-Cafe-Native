@@ -24,7 +24,7 @@ class Menu extends Component {
             return (
                 <ListItem
                     title={item.name}
-                    titleStyle={{fontSize: 25}}
+                    titleStyle={{fontSize: 30}}
                     subtitle={item.description}
                     leftAvatar={{source: item.image}}
                     chevron={{ color: 'black' }}
