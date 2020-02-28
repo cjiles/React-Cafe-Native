@@ -56,7 +56,7 @@ export const ORDER =
     },
     {   
         id: 9,
-        menuId: 1, 
+        menuid: 1, 
         title: "Chamomile Tea",
         price: "$9.99",
         description:"Bag of Tea | 12oz"
