@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { FlatList, Button, Icon, Image, ScrollView, StyleSheet } from 'react-native';
-import { ListItem, Card, Text, Tile } from 'react-native-elements';
+import { FlatList, ScrollView, StyleSheet } from 'react-native';
+import { ListItem } from 'react-native-elements';
 import { MENU } from '../shared/Menu';
 
 class Menu extends Component {

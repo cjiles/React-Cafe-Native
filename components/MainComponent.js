@@ -5,7 +5,6 @@ import MenuItems from './MenuItemsComponent';
 import Locations from './LocationsComponent';
 import Order from './OrderComponent';
 import ShoppingCart from './ShoppingCartComponent';
-import ShoppingCartIcon from './ShoppingCartIconComponent';
 import { createStackNavigator, createMaterialTopTabNavigator} from 'react-navigation';
 import { View } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
@@ -87,31 +86,21 @@ const OrderNavigator = createStackNavigator(
     }
 );
 
-const ShoppingCartNavigator = createStackNavigator(
-    {
-        ShoppingCart: { screen: ShoppingCart }
-    },
-    {
-        navigationOptions: {
-            headerStyle: {
-                backgroundColor: '#294452'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                color: '#F3F2F4',
-                marginBottom: 20
-            }
-        }
-    }
-);
-// const MainNavigator = createDrawerNavigator(
+// const ShoppingCartNavigator = createStackNavigator(
 //     {
-//         Home: { screen: HomeNavigator },
-//         Menu: { screen: MenuNavigator},
-//         Locations: { screen: LocationNavigator}
+//         ShoppingCart: { screen: ShoppingCart }
 //     },
 //     {
-//         drawerBackgroundColor: '#CEC8FF'
+//         navigationOptions: {
+//             headerStyle: {
+//                 backgroundColor: '#294452'
+//             },
+//             headerTintColor: '#fff',
+//             headerTitleStyle: {
+//                 color: '#F3F2F4',
+//                 marginBottom: 20
+//             }
+//         }
 //     }
 // );
 
@@ -169,19 +158,6 @@ const MainNavigator = createMaterialTopTabNavigator(
                 )
             }
         },
-        ShoppingCart: {
-            screen: ShoppingCartNavigator,
-            navigationOptions: {
-                tabBarIcon: ({tintColor}) => (
-                    <Icon
-                        name='coffee'
-                        type='font-awesome'
-                        size={24}
-                        color={tintColor}
-                    />
-                )
-            }
-        }
 
     },
 
@@ -195,8 +171,6 @@ const MainNavigator = createMaterialTopTabNavigator(
         }
     }
 )
-
-
 
 class Main extends Component{
     render() {
