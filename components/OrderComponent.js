@@ -25,8 +25,9 @@ class Orders extends Component {
                 <PricingCard
                     color="#294452"
                     title={item.title}
-                    titleStyle={{fontSize: 30}}
+                    titleStyle={{fontSize: 25}}
                     price={item.price}
+                    pricingStyle={{fontSize: 20}}
                     info={[item.description, ""]}
                     button={{ title: 'Add Item', icon: 'shopping-cart' }}
                     onButtonPress={() => {

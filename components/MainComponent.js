@@ -5,9 +5,11 @@ import MenuItems from './MenuItemsComponent';
 import Locations from './LocationsComponent';
 import Order from './OrderComponent';
 import ShoppingCart from './ShoppingCartComponent';
-import { createStackNavigator, createMaterialTopTabNavigator} from 'react-navigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator, createMaterialTopTabNavigator, createSwitchNavigator} from 'react-navigation';
 import { View } from 'react-native';
 import { Header, Icon } from 'react-native-elements';
+
 console.disableYellowBox = true;
 
 
@@ -86,23 +88,23 @@ const OrderNavigator = createStackNavigator(
     }
 );
 
-// const ShoppingCartNavigator = createStackNavigator(
-//     {
-//         ShoppingCart: { screen: ShoppingCart }
-//     },
-//     {
-//         navigationOptions: {
-//             headerStyle: {
-//                 backgroundColor: '#294452'
-//             },
-//             headerTintColor: '#fff',
-//             headerTitleStyle: {
-//                 color: '#F3F2F4',
-//                 marginBottom: 20
-//             }
-//         }
-//     }
-// );
+const ShoppingCartNavigator = createSwitchNavigator(
+    {
+        ShoppingCart: { screen: ShoppingCart }
+    },
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#294452'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#F3F2F4',
+                marginBottom: 20
+            },
+        }
+    }
+);
 
 const MainNavigator = createMaterialTopTabNavigator(
     {
@@ -178,8 +180,10 @@ class Main extends Component{
             <View style={{flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Expo.Constants.statusBarHeight }}>
                 <Header
                     centerComponent={{ text: "React Cafe", style: { color: 'white', fontSize: 30, marginBottom: 10}}}
-                    rightComponent={{icon:'shopping-cart'}}
-                    containerStyle={{backgroundColor: '#98977C'}}
+                    rightComponent={{
+                        icon:'shopping-cart',
+                        onPress:() => navigation.navigate('ShoppingCartNavigator')
+                    }}
                     containerStyle={{
                         backgroundColor: '#98977C',
                         justifyContent: 'space-around'}}
@@ -191,3 +195,5 @@ class Main extends Component{
 }
 
 export default Main;
+
+// {icon:'shopping-cart'}

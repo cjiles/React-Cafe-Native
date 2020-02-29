@@ -33,9 +33,10 @@ class ShoppingCart extends Component {
         };
         return(
             <FlatList
-                data={this.state.order.filter(
-                    order => this.props.shoppingcart.includes(order.id)
-                )}
+                data={this.state.order.filter}
+                    // (
+                    // order => this.props.shoppingcart.includes(order.id)
+        
                 renderItem={renderOrderItems}
                 // keyExtractor={item => item.id.toString()}
             />
@@ -43,4 +44,4 @@ class ShoppingCart extends Component {
     }
 }
 
-export default connect(mapStateToProps)(ShoppingCart);
+export default ShoppingCart;
